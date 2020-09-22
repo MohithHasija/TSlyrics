@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SPS game</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		body { 
+				background-image:url('spsgame.mp4'); 
+				background-repeat:repeat;
+			 }
+
+		.bg-danger {
+    			background-color: #285b90;
+			}
+
+
+	</style>
+</head>
+
+<body class="bg-danger">
+	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Stone Paper Scissor</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Tic Tac Toe</a></li>
+      <li><a href="#">Snake and ladder</a></li>
+      <li><a href="#">Hangman</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+	<div class="container">
+		<h1 class=" well">Stone Paper Scissor Game</h1>
+	</div>
+	<div class="container">
+		<button type="button" class="btn btn-warning col-sm-4"><h1 id="stone" onclick="game(0)">Stone</h1></button>
+  		<button type="button" class="btn btn-danger col-sm-4"><h1 id="paper" onclick="game(1)">Paper</h1></button>
+  		<button type="button" class="btn btn-success col-sm-4"><h1 id="scissor" onclick="game(2)">Scissor</h1></button> 
+	</div>
+	
+	<script type="text/javascript">
+		function game(urchoice){
+				compchoice=Math.floor(Math.random()*3)
+				
+				l=["Stone","Paper","Scissor"]
+				if (compchoice==urchoice){
+					document.getElementById("stone").innerHTML=l[urchoice]
+					document.getElementById("paper").innerHTML="Its a tie"
+					document.getElementById("scissor").innerHTML=l[compchoice]
+				}
+				else if ((urchoice==0 && compchoice==2) || (urchoice==1 && compchoice==0) || (urchoice==2 && compchoice==1)) {
+					document.getElementById("stone").innerHTML=l[urchoice]
+					document.getElementById("paper").innerHTML="YOU WON!!"
+					document.getElementById("scissor").innerHTML=l[compchoice]
+				}
+				else{
+					document.getElementById("stone").innerHTML=l[urchoice]
+					document.getElementById("paper").innerHTML="YOU Lose!!"
+					document.getElementById("scissor").innerHTML=l[compchoice]
+				}
+		}
+	</script>
+</body>
+</html>
